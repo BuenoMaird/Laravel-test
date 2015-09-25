@@ -5,8 +5,9 @@
 @section('sidebar')
   @parent
   <form action="post">
-    <input type="text">
-    <button>button</button>
+    <input type="text" name="name" id="name">
+    <label for="name" id="name">Name</label>
+    <button>Submit</button>
   </form>
 @endsection
 

@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html>
+@extends('layouts.master')
     <head>
         <title>Laravel</title>
 

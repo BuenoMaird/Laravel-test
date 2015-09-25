@@ -16,7 +16,3 @@ Route::get('/', function () {
 });
 
 Route::resource('user', 'UserController');
-
-Route::get('greeting', function () {
-    return view('create', ['name' => 'Samantha']);
-});

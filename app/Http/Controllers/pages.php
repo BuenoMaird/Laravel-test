@@ -6,19 +6,16 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class UserController extends Controller
+class pages extends Controller
 {
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function Index()
+    public function index()
     {
-        $user = User::all();
-
-        return View::make('user.index')
-        ->with('users', $user);
+        //
     }
 
     /**
@@ -26,9 +23,9 @@ class UserController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function Create()
+    public function create()
     {
-        // return view('create');
+        //
     }
 
     /**
@@ -48,9 +45,9 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function Show($id)
+    public function show($id)
     {
-        // return view('show/{id}');
+        //
     }
 
     /**
@@ -59,7 +56,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function Edit($id)
+    public function edit($id)
     {
         //
     }
@@ -71,7 +68,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function Update(Request $request, $id)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -82,7 +79,7 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function Destroy($id)
+    public function destroy($id)
     {
         //
     }
