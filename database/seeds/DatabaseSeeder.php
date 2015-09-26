@@ -20,6 +20,12 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('secret'),
         ]);
 
+        DB::table('posts')->insert([
+            'name' => str_random(10),
+            'title' => str_random(10),
+            'content' => str_random(10),
+        ]);
+
         Model::reguard();
     }
 }

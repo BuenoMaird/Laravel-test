@@ -2,6 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Hash;
+use Session;
+use Validator;
+use Input;
+use Redirect;
 use App\user;
 use Illuminate\Http\Request;
 use App\Http\Requests;
@@ -40,7 +45,32 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $rules = array(
+            'name' => 'required',
+            'email' => 'required|email',
+            'password'
+            );
+        //Validator is checking against duplicates of emails, 
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('user/create')
+            ->withErrors($validator)
+            ->withInput(Input::except('password'));
+        } else {
+            $password = Input::get('password');
+            $hashPassword = Hash::make($password);
+
+            $user = new User;
+            $user-> name = Input::get('name');
+            $user-> email = Input::get('email');
+            $user-> password = $hashPassword;
+            $user->save();
+
+            Session::flash('message', 'Succesfully created user');
+            return Redirect::to('user');
+        }
+
     }
 
     /**
@@ -52,8 +82,9 @@ class UserController extends Controller
     public function Show($id)
     {
         $user = User::find($id);
+
         return view('user.show')
-        ->with('user', $user);
+            ->with('user', $user);
     }
 
     /**
