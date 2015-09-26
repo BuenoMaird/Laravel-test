@@ -8,9 +8,9 @@
     <body>
         @section('nav')
         @yield('nav')
-            <a href="{{ URL::to('post/create') }}">create</a>
-            <a href="{{ URL::to('/')}}">home</a>
-            <a href="{{ URL::to('post') }}">index</a>
+            <a href="{{ URL::to('post/create') }}">create post</a>
+            <a href="{{ URL::to('/')}}">Take me home</a>
+            <a href="{{ URL::to('post') }}">All posts</a>
         @show
 
         <div class="container">
