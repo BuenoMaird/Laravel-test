@@ -1,10 +1,17 @@
 @extends('layouts.master')
 
 @section('content')
-  <a href="{{$post->id}}/edit">edit</a>
-  <h1>{{ $post->id }}</h1>
 
-{!! Form::open(['route' => ['post.destroy', $post->id], 'method' => 'delete']) !!}
-{!! Form::submit('Delete') !!}
-{!! Form::close() !!}
+<?php echo(Auth::user()->name) ?>
+
+  @if( $post->user_id === Auth::user()->id)
+    <a href="{{$post->id}}/edit">edit</a>
+    {!! Form::open(['route' => ['post.destroy', $post->id], 'method' => 'delete']) !!}
+    {!! Form::submit('Delete') !!}
+    {!! Form::close() !!}
+  @endif
+  <h1>{{ $post->title }}</h1>
+  <p>{{ $post->content}}</p>
+
+
 @endsection

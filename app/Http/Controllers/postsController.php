@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Auth;
 use Session;
 use Validator;
 use Input;
@@ -35,7 +36,11 @@ class postsController extends Controller
      */
     public function create()
     {
+        if(Auth::user()){
         return view('post.create');
+        }else{
+            Redirect::to('auth/login');
+        }
     }
 
     /**
@@ -46,6 +51,7 @@ class postsController extends Controller
      */
     public function store(Request $request)
     {
+        $user = Auth::user();
         // Rules that validator will check. Required will prompt the user if the content is left empty.
         $rules = array(
             'name',
@@ -65,6 +71,7 @@ class postsController extends Controller
             $post-> name = Input::get('name');
             $post-> title = Input::get('title');
             $post-> content = Input::get('content');
+            $post-> user_id = $user->id;
             $post->save();
             return Redirect::to('post');
         }
