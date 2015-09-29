@@ -2,8 +2,6 @@
 
 @section('content')
 
-<?php echo(Auth::user()->name) ?>
-
   @if( $post->user_id === Auth::user()->id)
     <a href="{{$post->id}}/edit">edit</a>
     {!! Form::open(['route' => ['post.destroy', $post->id], 'method' => 'delete']) !!}

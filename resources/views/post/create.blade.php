@@ -3,6 +3,7 @@
 @section('title', 'create')
 
 @section('content')
+      {!! csrf_field() !!}
 
 {!! Html::ul($errors->all()) !!}
 
@@ -12,11 +13,11 @@
       {!! Form::label('name', 'Name') !!}
       {!! Form::text('name', Input::old('text')) !!}
 
-      {!! Form::label('title', 'title') !!}
+      {!! Form::label('title', 'Title') !!}
       {!! Form::text('title', Input::old('text')) !!}
 
-      {!! Form::label('content', 'content') !!}
-      {!! Form::text('content', Input::old('text')) !!}
+      {!! Form::label('content', 'Content') !!}
+      {!! Form::text('content', Input::old('textarea')) !!}
     </div>
 
     {!! Form::submit('Create Post') !!}

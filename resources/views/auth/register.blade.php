@@ -15,23 +15,23 @@
             {!! csrf_field() !!}
 
             <div>
-                Name
-                <input type="text" name="name" value="{{ old('name') }}">
+            <label for="name" id="">Name</label>
+                <input type="text" name="name" value="{{ old('name') }}" id="name">
             </div>
 
             <div>
-                Email
-                <input type="email" name="email" value="{{ old('email') }}">
+            <label for="email">Email</label>
+                <input type="email" name="email" value="{{ old('email') }}" id="email">
             </div>
 
             <div>
-                Password
-                <input type="password" name="password">
+            <label for="password">Password</label>
+                <input type="password" name="password" id="password">
             </div>
 
             <div>
-                Confirm Password
-                <input type="password" name="password_confirmation">
+            <label for="password_confirmation">Password Confirmation</label>
+                <input type="password" name="password_confirmation" id="password_confirmation">
             </div>
 
             <div>

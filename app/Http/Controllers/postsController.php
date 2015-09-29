@@ -37,10 +37,11 @@ class postsController extends Controller
     public function create()
     {
         if(Auth::user()){
-        return view('post.create');
+            return view('post.create');
         }else{
-            Redirect::to('auth/login');
+            return view('auth/login');
         }
+
     }
 
     /**
@@ -89,10 +90,14 @@ class postsController extends Controller
     //IMPORTANT -- The route for this is /post/{id}. NOT post/show/{id}...
 
     {
-        $post = Post::find($id);
+        if(Auth::user()){
+            $post = Post::find($id);
 
-        return view('post.show')
-        ->with('post', $post);
+            return view('post.show')
+            ->with('post', $post);
+        }else{
+            return view('auth.login');
+        }
     }
 
     /**

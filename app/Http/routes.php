@@ -20,13 +20,6 @@ Route::get('auth/logout', 'Auth\AuthController@getLogout');
 Route::get('auth/register', 'Auth\AuthController@getRegister');
 Route::post('auth/register', 'Auth\AuthController@postRegister');
 
-//Check if user is logged in for viewing individual posts to avoid unwanted editting / deleting.
-Route::get('post/{id}', ['middleware' => 'auth', 'uses' => 'postsController@show']);
-
-// Route::filter('auth', function()
-// {
-//     if (Auth::user()) return Redirect::guest('login');
-// });
 
 Route::get('/', function () {
     return view('welcome');
